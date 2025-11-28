@@ -17,19 +17,6 @@
  */
 package cn.smallbun.screw.core.query.dm;
 
-import static cn.smallbun.screw.core.constant.DefaultConstants.PERCENT_SIGN;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Collectors;
-
-import javax.sql.DataSource;
-
 import cn.smallbun.screw.core.exception.QueryException;
 import cn.smallbun.screw.core.mapping.Mapping;
 import cn.smallbun.screw.core.metadata.Column;
@@ -44,6 +31,21 @@ import cn.smallbun.screw.core.util.Assert;
 import cn.smallbun.screw.core.util.CollectionUtils;
 import cn.smallbun.screw.core.util.ExceptionUtils;
 import cn.smallbun.screw.core.util.JdbcUtils;
+import com.zaxxer.hikari.HikariDataSource;
+
+import javax.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import static cn.smallbun.screw.core.constant.DefaultConstants.PERCENT_SIGN;
 
 /**
  * 达梦数据库查询
@@ -128,6 +130,8 @@ public class DmDataBaseQuery extends AbstractDatabaseQuery {
         return model;
     }
 
+    Pattern pattern = Pattern.compile("jdbc:dm://[^/]+/([^?]+)");
+
     /**
      * 获取达梦数据库的schema
      *
@@ -135,7 +139,13 @@ public class DmDataBaseQuery extends AbstractDatabaseQuery {
      */
     @Override
     public String getSchema() throws QueryException {
-        return null;
+        String jdbcUrl = ((HikariDataSource) getDataSource()).getJdbcUrl();
+        Matcher matcher = pattern.matcher(jdbcUrl);
+        if (matcher.find()) {
+            return matcher.group(1);
+        } else {
+            throw new QueryException("获取达梦数据库的schema失败, 请在 jdbcUrl 中配置 schema 信息");
+        }
     }
 
     /**
