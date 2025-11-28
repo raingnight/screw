@@ -1,3 +1,4 @@
+# 本项目 Fork 自 [smallbun/screw](https://gitee.com/leshalv/screw.git) 感谢作者开源
 
 <p align="center">
   <a href="https://github.com/pingfangushi/screw">
@@ -14,8 +15,8 @@
     <a href="https://github.com/pingfangushi/screw">
         <img src="https://img.shields.io/badge/link-wiki-green.svg?style=flat-square" alt="wiki">
     </a>
-    <a href="https://search.maven.org/search?q=cn.smallbun.screw">
-       <img alt="Maven Central" src="https://img.shields.io/maven-central/v/cn.smallbun.screw/screw-core">
+    <a href="https://search.maven.org/search?q=cn.sunofjune.screw">
+       <img alt="Maven Central" src="https://img.shields.io/maven-central/v/cn.sunofjune.screw/screw-core">
     </a>
     <a href="#">
         <img src="https://img.shields.io/badge/JDK-1.8+-green.svg" alt="JDK Version">
@@ -25,18 +26,13 @@
     </a>
 </p>
 
->  🚀 screw (螺丝钉) 英:[`skruː`]  ~ 简洁好用的数据库表结构文档生成工具
-
-## 推荐
-
-欢迎关注作者新项目： 业界首个基于 SpringBoot3 开源IDaas/IAM平台，支持OAuth2.x、OIDC、SAML2.0、JWT、CAS等SSO标准协议，实现用户全生命周期的管理、统一认证和单点登录。欢迎大家star支持，感谢！
-
-开源地址：https://gitee.com/topiam/eiam
+> 🚀 screw (螺丝钉) 英:[`skruː`]  ~ 简洁好用的数据库表结构文档生成工具
 
 ## 简介
 
-&emsp;&emsp;在企业级开发中、我们经常会有编写数据库表结构文档的时间付出，从业以来，待过几家企业，关于数据库表结构文档状态：要么没有、要么有、但都是手写、后期运维开发，需要手动进行维护到文档中，很是繁琐、如果忘记一次维护、就会给以后工作造成很多困扰、无形中制造了很多坑留给自己和后人，于是萌生了要自己写一个插件工具的想法，但由于自己前期在程序设计上没有很多造诣，且能力偏低，有想法并不能很好实现，随着工作阅历的增加，和知识的不断储备，终于在2020年的3月中旬开始进行编写，4月上旬完成初版，想完善差不多在开源，但由于工作太忙，业余时间不足，没有在进行完善，到了6月份由于工作原因、频繁设计和更改数据库、经常使用自己写的此插件、节省了很多时间，解决了很多问题 ，在仅有且不多的业余时间中、进行开源准备，于2020年6月22日，开源，欢迎大家使用、建议、并贡献。<br/>
-&emsp;&emsp;关于名字，想一个太难了，好在我这个聪明的小脑瓜灵感一现，怎么突出它的小，但重要呢？从小就学过雷锋的螺丝钉精神，摘自雷锋日记：**虽然是细小的螺丝钉，是个细微的小齿轮，然而如果缺了它，那整个的机器就无法运转了，慢说是缺了它，即使是一枚小螺丝钉没拧紧，一个小齿轮略有破损，也要使机器的运转发生故障的...**，感觉自己写的这个工具，很有这意味，虽然很小、但是开发中缺了它还不行，于是便起名为**screw**（螺丝钉）。<br/>
+原有的 [smallbun/screw](https://gitee.com/leshalv/screw.git) 十个非常好用的工具，帮助了不少人快速生成了
+数据库文档，但是目前由于国产化适配的趋势，逐渐切换到达梦数据库之类的国产数据库之后，发现不支持DM8
+看到原仓库已经很久没有更新了，于是 fork 了一份出来，进行维护。目前已新增达梦数据库的支持。
 
 ## 特点
 
@@ -49,20 +45,20 @@
 
 ## 数据库支持
 
-- [x] MySQL 
-- [x] MariaDB 
-- [x] TIDB 
-- [x] Oracle 
-- [x] SqlServer 
+- [x] MySQL
+- [x] MariaDB
+- [x] TIDB
+- [x] Oracle
+- [x] SqlServer
 - [x] PostgreSQL
 - [x] Cache DB（2016）
+- [x] 达梦 （DM8）
 - [ ] H2 （开发中）
-- [ ] DB2  （开发中）
-- [ ] HSQL  （开发中）
+- [ ] DB2 （开发中）
+- [ ] HSQL （开发中）
 - [ ] SQLite（开发中）
 - [ ] 瀚高（开发中）
-- [ ] 达梦 （开发中）
-- [ ] 虚谷  （开发中）
+- [ ] 虚谷 （开发中）
 - [ ] 人大金仓（开发中）
 
 ## 文档生成支持
@@ -104,11 +100,12 @@
 + **引入依赖**
 
 ```xml
+
 <dependency>
-    <groupId>cn.smallbun.screw</groupId>
+    <groupId>cn.sunofjune.screw</groupId>
     <artifactId>screw-core</artifactId>
     <version>${lastVersion}</version>
- </dependency>
+</dependency>
 ```
 
 + **编写代码**
@@ -190,7 +187,7 @@ void documentGeneration() {
 <build>
     <plugins>
         <plugin>
-            <groupId>cn.smallbun.screw</groupId>
+            <groupId>cn.sunofjune.screw</groupId>
             <artifactId>screw-maven-plugin</artifactId>
             <version>${lastVersion}</version>
             <dependencies>
@@ -246,11 +243,11 @@ void documentGeneration() {
 
 ### 使用文章
 
-+ [SpringBoot整合screw生成数据库文档](https://my.oschina.net/mdxlcj/blog/4341399) 
++ [SpringBoot整合screw生成数据库文档](https://my.oschina.net/mdxlcj/blog/4341399)
 
-+ [还在手动整理数据库文档？试试这个工具](https://mp.weixin.qq.com/s/Bo_U5_cl82hfQ6GmRs2vtA) 
++ [还在手动整理数据库文档？试试这个工具](https://mp.weixin.qq.com/s/Bo_U5_cl82hfQ6GmRs2vtA)
 
-+ [实用！一键生成数据库文档，堪称数据库界的Swagger](https://mp.weixin.qq.com/s/nPwFV7DN8Ogg54_crLlP3g) 
++ [实用！一键生成数据库文档，堪称数据库界的Swagger](https://mp.weixin.qq.com/s/nPwFV7DN8Ogg54_crLlP3g)
 
 ### 使用视频
 
@@ -264,22 +261,24 @@ void documentGeneration() {
 
 #### 功能简介
 
-&emsp;&emsp;pojo生成功能是基于screw延伸出的扩展模块,目前处于初步开发的状态。在日常的开发中,经过需求分析、建模之后,往往会先在数据库中建表,其次在进行代码的开发。那么pojo生成功能在这个阶段就可以帮助大家节省一些重复劳动了。使用pojo生成功能可以直接根据数据库生成对应的java pojo对象。这样后续的修改，开发都会很方便。
+&emsp;&emsp;pojo生成功能是基于screw延伸出的扩展模块,目前处于初步开发的状态。在日常的开发中,经过需求分析、建模之后,往往会先在数据库中建表,其次在进行代码的开发。那么pojo生成功能在这个阶段就可以帮助大家节省一些重复劳动了。使用pojo生成功能可以直接根据数据库生成对应的java
+pojo对象。这样后续的修改，开发都会很方便。
 
 #### 数据库支持
 
-- [x] MySQL 
+- [x] MySQL
 
 #### 使用方式
 
 + **引入依赖**
 
 ```xml
+
 <dependency>
-    <groupId>cn.smallbun.screw</groupId>
+    <groupId>cn.sunofjune.screw</groupId>
     <artifactId>screw-extension</artifactId>
     <version>${lastVersion}</version>
- </dependency>
+</dependency>
 ```
 
 + **编写代码**
@@ -315,7 +314,7 @@ void pojoGeneration() {
     //设置文件存放路径
     config.setPath("/cn/smallbun/screw/");
     //设置包名
-    config.setPackageName("cn.smallbun.screw");
+    config.setPackageName("cn.sunofjune.screw");
     //设置是否使用lombok
     config.setUseLombok(false);
     //设置数据源
@@ -329,78 +328,40 @@ void pojoGeneration() {
 }
 ```
 
-
-## 更多支持
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center"><img src="https://images.gitee.com/uploads/images/2020/0622/161414_eaa2819d_1407605.jpeg" width="300" height="300"  alt="WeChat"/> </td>
-    <td align="center"><img src="https://images.gitee.com/uploads/images/2021/0806/091540_66d72182_1407605.png" width="300" height="300" alt="WeChat"/></td>
-    <td align="center"><img src="https://images.gitee.com/uploads/images/2020/0707/191620_9a63fb23_1407605.png" width="300" height="300"  alt="QQ"/></td>
-  </tr>
-  <tr>
-    <td align="center">微信公众号</td>
-    <td align="center">微信交流群</td>
-    <td align="center">QQ交流群</td>
-  </tr>
-</table>
-
-+ 扫码关注官方微信公众号，第一时间尊享最新动向，回复 **screw** 获取作者微信号。
-
-## 谁在使用
-
-> 名称排序按登记先后，登记仅仅为了产品推广，希望出现您公司名称的小伙伴可以告诉我们。
-
- + 山东顺能网络科技有限公司
- + 顺众数字科技（山东）有限公司
- + 江苏立华牧业股份有限公司
- + 上海德邦物流有限公司
- + 兰州百格网络科技有限公司
- + 杭州惠合信息科技有限公司
- + 浙大网新科技股份有限公司
- + 金蝶中国（武汉）分公司
-
- 
 ## 常见问题
 
- + 生成后文档乱码？
++ 生成后文档乱码？
 
-   MySQL：URL加入`?characterEncoding=UTF-8`。
+  MySQL：URL加入`?characterEncoding=UTF-8`。
 
- + Caused by: java.lang.NoSuchFieldError: VERSION_2_3_30？
++ Caused by: java.lang.NoSuchFieldError: VERSION_2_3_30？
 
-   检查项目`freemarker`依赖，这是由于版本过低造成的，升级版本为`2.3.30`即可。
+  检查项目`freemarker`依赖，这是由于版本过低造成的，升级版本为`2.3.30`即可。
 
- + java.lang.AbstractMethodError: oracle.jdbc.driver.T4CConnection.getSchema()Ljava/lang/String;
++ java.lang.AbstractMethodError: oracle.jdbc.driver.T4CConnection.getSchema()Ljava/lang/String;
 
-   这是因为oracle驱动版本过低造成的，删除或屏蔽目前驱动版本，驱动添加升级为以下版本：
-   
-    ``` xml
-    <dependency>
-       <groupId>com.oracle.ojdbc</groupId>
-       <artifactId>ojdbc8</artifactId>
-       <version>19.3.0.0</version>
-    </dependency>
-    <dependency>
-       <groupId>cn.easyproject</groupId>
-       <artifactId>orai18n</artifactId>
-       <version>12.1.0.2.0</version>
-    </dependency>
-    ```
+  这是因为oracle驱动版本过低造成的，删除或屏蔽目前驱动版本，驱动添加升级为以下版本：
 
- + MySQL数据库表和列字段有说明、生成文档没有说明？
-   
-   URL链接加入`useInformationSchema=true`即可。
-   
- + java.lang.AbstractMethodError: com.mysql.jdbc.JDBC4Connection.getSchema()Ljava/lang/String;
-    
-   这是因为mysql驱动版本过低造成的，升级mysql驱动版本为最新即可。
-   
-## 推荐开源项目
+   ``` xml
+   <dependency>
+      <groupId>com.oracle.ojdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>19.3.0.0</version>
+   </dependency>
+   <dependency>
+      <groupId>cn.easyproject</groupId>
+      <artifactId>orai18n</artifactId>
+      <version>12.1.0.2.0</version>
+   </dependency>
+   ```
 
-| 项目名称       | 项目描述          |  
-| ------------- |:-------------:|
-|[api-boot](https://gitee.com/minbox-projects/api-boot)|为组件化构建Api服务而生| 
++ MySQL数据库表和列字段有说明、生成文档没有说明？
+
+  URL链接加入`useInformationSchema=true`即可。
+
++ java.lang.AbstractMethodError: com.mysql.jdbc.JDBC4Connection.getSchema()Ljava/lang/String;
+
+  这是因为mysql驱动版本过低造成的，升级mysql驱动版本为最新即可。
 
 ## 参与贡献
 
@@ -410,22 +371,4 @@ void pojoGeneration() {
 
 <img src='https://www.gnu.org/graphics/lgplv3-with-text-154x68.png' alt="license">
 
-## 捐赠支持
-
-&emsp;&emsp;我们一直致力于为您提供更好的数据库文档生成器。为了**screw**更好的发展和社区更加的繁荣，我们需要您的支持。<br/>
-&emsp;&emsp;捐赠的目的是获得资金来维持我们所提供的程序和服务，捐款是基于大家自愿的原则，建议大家使用 支付宝 的"转账付款"功能，即时到帐。您的支持是鼓励我们前行的动力，无论金额多少都足够表达您这份心意。<br/>
-
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center"><img src="https://images.gitee.com/uploads/images/2020/0622/161414_c87e1846_1407605.png" width="200" height="200" /> </td>
-    <td align="center"><img src="https://images.gitee.com/uploads/images/2020/0622/161414_e953f85f_1407605.png" width="200" height="200" /></td>
-  </tr>
-  <tr>
-    <td align="center">支付宝</td>
-    <td align="center">微信</td>
-  </tr>
-</table>
-
-
-
->**screw** 感谢您选择相信和支持！
+> **screw** 感谢您选择相信和支持！

@@ -3,20 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>cn.smallbun.screw</groupId>
+        <groupId>cn.sunofjune.screw</groupId>
         <artifactId>screw</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Screw Maven Plugin</name>
     <artifactId>screw-maven-plugin</artifactId>
 
     <packaging>maven-plugin</packaging>
     <dependencies>
         <!--项目核心包-->
         <dependency>
-            <groupId>cn.smallbun.screw</groupId>
+            <groupId>cn.sunofjune.screw</groupId>
             <artifactId>screw-core</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -4,16 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>screw</artifactId>
-        <groupId>cn.smallbun.screw</groupId>
-        <version>1.0.7-SNAPSHOT</version>
+        <groupId>cn.sunofjune.screw</groupId>
+        <version>1.0.7</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Screw Extension</name>
     <artifactId>screw-extension</artifactId>
     <dependencies>
         <!--项目核心包-->
         <dependency>
-            <groupId>cn.smallbun.screw</groupId>
+            <groupId>cn.sunofjune.screw</groupId>
             <artifactId>screw-core</artifactId>
             <version>${project.version}</version>
         </dependency>
@@ -36,6 +37,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
